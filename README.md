@@ -1,6 +1,6 @@
 # Chatbot Xem Tử Vi - LangChain
 ## Giới thiệu
-Chatbot xem tử vi được xây dựng bằng LangChain, kết hợp với các mô hình ngôn ngữ lớn (LLM) để cung cấp dự đoán về tử vi dựa trên ngày tháng năm sinh và giờ sinh.
+Chatbot xem tử vi được xây dựng bằng LangChain, kết hợp với các mô hình ngôn ngữ lớn (LLM) lấy thông tin từ hai quyển sách là Tử điển tử vi và Tử vi hàm số để cung cấp dự đoán về tử vi dựa trên ngày tháng năm sinh và giờ sinh.
 
 ## Tính Năng
 
@@ -31,7 +31,43 @@ Dựa theo kiến trúc Agent Supervisor, trong đó, mỗi agent sẽ thực hi
 <p align="center">
   <img src="https://github.com/user-attachments/assets/84da761d-d4dd-4ed5-99b7-262f7865989a" alt="Graph">
 </p>
+Trong sơ đồ trên:<br>
 
+- **document_team** chia thành **horoscope_dictionary_agent** và **mathematical_horoscope_agents**. Nhiệm vụ:
+  - **horoscope_dictionary_agent**  
+    - Phân tích câu hỏi để xác định thuật ngữ tử vi.  
+    - Tra cứu và cung cấp định nghĩa từ từ điển tử vi.  
+    - Giải thích theo ngữ cảnh mà không thực hiện tính toán.  
+  - **mathematical_horoscope_agents**  
+    - Xác định yếu tố liên quan đến công thức toán học trong tử vi.  
+    - Truy xuất dữ liệu và cung cấp thông tin theo mô hình toán học.  
+    - Đảm bảo kết quả chính xác về mặt số học.  
+
+
+  - **agent_aggregation** có nhiệm vụ:
+    - Tổng hợp thông tin từ các agent khác.  
+    - Đánh giá tính liên quan, nhất quán và độ chính xác của dữ liệu.  
+    - Cung cấp câu trả lời mạch lạc, chính xác, phù hợp với ý định của người dùng.  
+  
+- **agent_formatting** có nhiệm vụ::
+  - Định dạng và trình bày câu trả lời sao cho rõ ràng, súc tích.
+  - Đảm bảo nội dung có cấu trúc hợp lý, dễ hiểu.
+  - Cung cấp đầu ra trau chuốt, sẵn sàng truyền tải ngay lập tức.
+
+- **top_level_orchestrator_agent** đóng vai trò người giám sát có nhiệm vụ:
+  = Quản lý toàn bộ hệ thống tư vấn.
+  - Tiếp nhận truy vấn từ người dùng để phối hợp với document_team để lập kế hoạch truy vấn chính xác.
+  - Phân bổ truy vấn đến nhóm nghiên cứu tài liệu, bao gồm horoscope_dictionary_agent và mathematical_horoscope_agents.
+  - Thu thập và đánh giá phản hồi từ các agent tài liệu bằng agent_aggregation, đảm bảo kết quả tổng hợp nhất quán và phù hợp với câu hỏi của người dùng.
+  - Hướng dẫn agent_formatting định dạng và trình bày câu trả lời một cách rõ ràng, mạch lạc.
+  - Đảm bảo phối hợp trơn tru giữa các tác vụ, thông tin có độ chính xác cao và câu trả lời cuối cùng có tính rõ ràng, dễ hiểu.<br>
+  ***Demo**: Với message input như sau: "Người có giới tính nam, sinh ngày 20/07/2002 giờ 0:30p có mệnh là gì.và đánh giá tổng quan lá số của người này.Hệ thống sẽ cho ra dự đoán như sau:
+    ![image](https://github.com/user-attachments/assets/0190a44d-ea0d-470d-8cfb-9726806cd5ca)
+
+    
+  
+
+  
 
  
 
