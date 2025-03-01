@@ -9,7 +9,7 @@ Chatbot xem tử vi được xây dựng bằng LangChain, kết hợp với cá
 - **Mối Quan Hệ**: Phân tích tính cách để xác định quan hệ đối với người xung quanh, bao gồm bạn bè, đối tác, gia đình.
 - **Lời Khuyên**: Đưa ra những lời khuyên về cuộc sống, nghề nghiệp và quan hệ xã hội.
 
-# Công nghệ sử dụng
+## Công nghệ sử dụng
 - **LangChain**
 Thư viện LangChain giúp xây dựng các ứng dụng AI sử dụng mô hình ngôn ngữ lớn (LLM).
 Các module chính được sử dụng:
@@ -22,11 +22,15 @@ Công cụ tìm kiếm vector hiệu suất cao để lưu trữ và tìm kiếm
 - **OpenAI Embeddings API**
 Sử dụng mô hình text-embedding-3-large để chuyển đổi văn bản thành vector số.
 Những vector này sẽ được lưu vào FAISS để tìm kiếm tương tự (similarity search).
--** LangSmith:**
+- **LangSmith:**
   LangSmith giúp theo dõi và kiểm tra quá trình xử lý trong LangChain, đảm bảo hệ thống hoạt động hiệu quả.
 
  ## Sơ đồ luồng:
- ![Graph](https://github.com/user-attachments/assets/84da761d-d4dd-4ed5-99b7-262f7865989a)
+![MutilAgentsGraph](https://github.com/user-attachments/assets/99772916-6a2a-4f40-be65-5f24c04df0e3) <br>
+Dựa theo kiến trúc Agent Supervisor, trong đó, mỗi agent sẽ thực hiện phần tác vụ riêng của mình đồng thời gửi phản hồi về agent supervisor. Agent supervisor sẽ đóng vai trò giám sát kết quả đầu ra và phản hồi lại mỗi agent ( https://blog.langchain.dev/langgraph-multi-agent-workflows/).<br>
+
+ ![Graph](https://github.com/user-attachments/assets/84da761d-d4dd-4ed5-99b7-262f7865989a)<br>
+ 
 
 
 
