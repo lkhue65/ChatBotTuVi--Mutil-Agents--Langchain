@@ -28,8 +28,11 @@ Những vector này sẽ được lưu vào FAISS để tìm kiếm tương tự
  ## Sơ đồ luồng:
 ![MutilAgentsGraph](https://github.com/user-attachments/assets/99772916-6a2a-4f40-be65-5f24c04df0e3) <br>
 Dựa theo kiến trúc Agent Supervisor, trong đó, mỗi agent sẽ thực hiện phần tác vụ riêng của mình đồng thời gửi phản hồi về agent supervisor. Agent supervisor sẽ đóng vai trò giám sát kết quả đầu ra và phản hồi lại mỗi agent ( https://blog.langchain.dev/langgraph-multi-agent-workflows/).<br>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84da761d-d4dd-4ed5-99b7-262f7865989a" alt="Graph">
+</p>
 
- ![Graph](https://github.com/user-attachments/assets/84da761d-d4dd-4ed5-99b7-262f7865989a)<br>
+
  
 
 
